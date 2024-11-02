@@ -7,7 +7,7 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./src/index.html",
-            title: "Weather App",
+            title: "",
         })
     ],
     module: {
@@ -35,6 +35,9 @@ module.exports = {
     devServer: {
         watchFiles: ["src/*.html"],
         hot: true,
-        static: "./dist"
+        static: {
+            directory: path.join(__dirname, 'src/images'),
+            publicPath: '/images'
+        },
     },
 };
